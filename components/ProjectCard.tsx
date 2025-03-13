@@ -14,7 +14,7 @@ export default function ProjectCard({ id, title, description }: ProjectCardProps
           <div>
             <p>{description}</p>
           </div>      
-          <img src={`/images/screenshot${id}.png`} alt={`Screenshot ${id}`} className="w-full h-auto rounded-lg" />
+          {/* <img src={`/images/screenshot${id}.png`} alt={`Screenshot ${id}`} className="w-full h-auto rounded-lg" /> */}
       </Link>
     </div>
   );
