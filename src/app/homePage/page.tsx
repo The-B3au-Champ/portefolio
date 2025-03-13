@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import NavBar from "../../../components/navbarComponent";
 import PiedDePage from "../../../components/footerComponent";
 
@@ -26,7 +27,7 @@ export default function Home() {
         </p>
       </section>
       <button className="px-4 py-2 text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 rounded-md">
-        Voir mes Projets
+        <Link href="/projet">Voir mes Projets</Link>
       </button>
     </main>
     <PiedDePage/>
