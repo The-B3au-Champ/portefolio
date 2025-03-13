@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
+import Link from "next/link";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -27,7 +27,25 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+          <nav className="flex justify-center py-4 bg-gray-500 text-white">
+          <ul className="flex space-x-4">
+            <li>
+              <Link href="/homePage">Home Page</Link>
+            </li>
+            <li>
+              <Link href="/experience">Experience</Link>
+            </li>
+            <li>
+              <Link href="/contact">Contact</Link>
+            </li>
+          </ul>
+        </nav>
         {children}
+        <footer className="fixed bottom-0 w-full flex flex-col items-center py-4 bg-gray-500 text-white">
+          <p>© 2025 Charles Beauchamp</p>
+          <p>Address, Ville</p>
+          <p>Email: charles@example.com | Phone: 123-456-7890</p>
+        </footer>
       </body>
     </html>
   );

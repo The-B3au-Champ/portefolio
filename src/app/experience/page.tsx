@@ -29,7 +29,6 @@ export default function Experience() {
 
   return (
     <>
-    <NavBar/>
         <main className="max-w-3xl mx-auto py-12 px-6">
             <h1 className="text-4xl font-bold mb-8">💼 Mon Expérience</h1>
             <div className="flex-row gap-4">
@@ -48,14 +47,13 @@ export default function Experience() {
                 </div>
                 ))}
             </div>
-            <div>
+            <div className='mb-20 rounded-lg shadow-lg mt-4 pl-4 pr-4'>
                 <h2 className='font-bold text-2xl mt-8'>Mon Parcours Académique</h2>
                 <p>J'ai étudié dans le domaine de l'informatique au Cégep de Saint-Jérôme au début, pour ensuite me diriger vers l'AEC en développement de sites web.</p>
                 <p>Dans le programme j'ai appris les langages <b>front-End HTML, CSS, JavaScript</b> en particulier mais j'ai également eu la chance d'étudier <b>React, React-native et Next.js</b></p>
                 <p>Dans le <b>Back-End</b> j'ai étudier <b>Php, Node.js et le framework Laravel</b></p>
             </div>
         </main>
-        <PïedDePage/>
     </>
   );
 }

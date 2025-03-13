@@ -6,7 +6,6 @@ import PiedDePage from "../../../components/footerComponent";
 export default function Home() {
   return (
     <>
-    <NavBar/>
     <main className="flex flex-col items-center justify-center min-h-screen">
       <section className="max-w-3xl mx-auto text-center py-12 px-6">
         <h1 className="text-4xl font-bold text-gray-900">👋 Salut, moi c'est Charles Beauchamp !</h1>
@@ -26,11 +25,10 @@ export default function Home() {
           🚀 <strong>Prêt à travailler ensemble ?</strong> Jette un coup d’œil à mes projets !
         </p>
       </section>
-      <button className="px-4 py-2 text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 rounded-md">
+      <button className="px-4 py-2 text-sm font-medium text-white bg-gray-500 hover:bg-gray-300 hover:text-black rounded-md">
         <Link href="/projet">Voir mes Projets</Link>
       </button>
     </main>
-    <PiedDePage/>
     </>
   );
 }

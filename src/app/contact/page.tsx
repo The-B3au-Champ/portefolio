@@ -100,7 +100,6 @@ export default function Contact() {
   
   return (
     <>
-      <NavBar />
       <Head>
         <title>Contact - Notre Entreprise</title>
         <meta name="description" content="Contactez-nous pour plus d'informations" />
@@ -160,9 +159,11 @@ export default function Contact() {
                   className={`mt-1 block w-full px-3 py-2 border rounded-md shadow-sm ${
                     errors.name ? 'border-red-500' : 'border-gray-300'
                   }`}
+                  aria-invalid={!!errors.name}
+                  aria-describedby={errors.name ? 'name-error' : undefined}
                 />
                 {errors.name && (
-                  <p className="mt-1 text-sm text-red-600">{errors.name}</p>
+                  <p id="name-error" className="mt-1 text-sm text-red-600">{errors.name}</p>
                 )}
               </div>
               
@@ -179,9 +180,11 @@ export default function Contact() {
                   className={`mt-1 block w-full px-3 py-2 border rounded-md shadow-sm ${
                     errors.email ? 'border-red-500' : 'border-gray-300'
                   }`}
+                  aria-invalid={!!errors.email}
+                  aria-describedby={errors.email ? 'email-error' : undefined}
                 />
                 {errors.email && (
-                  <p className="mt-1 text-sm text-red-600">{errors.email}</p>
+                  <p id="email-error" className="mt-1 text-sm text-red-600">{errors.email}</p>
                 )}
               </div>
               
@@ -198,9 +201,11 @@ export default function Contact() {
                   className={`mt-1 block w-full px-3 py-2 border rounded-md shadow-sm ${
                     errors.message ? 'border-red-500' : 'border-gray-300'
                   }`}
+                  aria-invalid={!!errors.message}
+                  aria-describedby={errors.message ? 'message-error' : undefined}
                 ></textarea>
                 {errors.message && (
-                  <p className="mt-1 text-sm text-red-600">{errors.message}</p>
+                  <p id="message-error" className="mt-1 text-sm text-red-600">{errors.message}</p>
                 )}
               </div>
               
@@ -208,7 +213,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition disabled:opacity-50"
+                  className="w-full bg-gray-500 hover:bg-gray-300 hover:text-black text-white py-2 px-4 rounded-md transition disabled:opacity-50"
                 >
                   {isSubmitting ? 'Envoi en cours...' : 'Envoyer'}
                 </button>
@@ -217,7 +222,6 @@ export default function Contact() {
           </div>
         </div>
       </div>
-      <PiedDePage />
     </>
   );
 }

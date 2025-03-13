@@ -6,8 +6,8 @@ async function fetchProject(projectId: string) {
     '1': {
       id: '1',
       name: 'Projet 1',
-      description: 'Description du projet 1',
-      technologies: ['Next.js', 'React', 'Node.js'],
+      description: 'Application Mobile, YumYam qui fait une liste de courses selon un calendrier de recette du user',
+      technologies: ['React-Native', 'PhpMyAdmin(MySQL)', 'Node.js'],
       challenges: 'Défis rencontrés lors du projet 1',
       screenshots: ['/images/screenshot1.png', '/images/screenshot2.png'],
     },
