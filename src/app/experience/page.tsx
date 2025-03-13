@@ -1,6 +1,5 @@
 import React from 'react';
-import NavBar from '../../../components/navbarComponent';
-import PïedDePage from '../../../components/footerComponent';
+
 
 export default function Experience() {
   const experiences = [

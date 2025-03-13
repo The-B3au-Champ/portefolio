@@ -1,6 +1,4 @@
-import Link from "next/link";
-import NavBar from "../../../components/navbarComponent";
-import PiedDePage from "../../../components/footerComponent";
+
 import ProjectCard from "../../../components/ProjectCard";
 
 export default function Projet() {

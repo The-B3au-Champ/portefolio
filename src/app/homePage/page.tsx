@@ -1,7 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import NavBar from "../../../components/navbarComponent";
-import PiedDePage from "../../../components/footerComponent";
+
 
 export default function Home() {
   return (

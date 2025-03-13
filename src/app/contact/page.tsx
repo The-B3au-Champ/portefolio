@@ -1,9 +1,6 @@
 'use client'
 import { useState, FormEvent } from 'react';
 import Head from 'next/head';
-import NavBar from '../../../components/navbarComponent';
-import PiedDePage from '../../../components/footerComponent';
-
 interface FormData {
   name: string;
   email: string;
