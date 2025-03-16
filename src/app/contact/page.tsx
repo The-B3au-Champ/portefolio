@@ -85,7 +85,7 @@ export default function Contact() {
           text: data.message || 'Une erreur est survenue'
         });
       }
-    } catch (error) {
+    } catch {
       setStatusMessage({
         type: 'error',
         text: 'Une erreur est survenue lors de l\'envoi du message'
