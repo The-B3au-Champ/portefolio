@@ -12,12 +12,6 @@ type Project = {
   screenshots: string[];
 };
 
-type PageProps = {
-  params: {
-    projectId: string;
-  };
-};
-
 async function loadProjects(): Promise<Project[]> {
   const filePath = path.join(process.cwd(), 'public', 'projects.json');
   const jsonData = await fs.readFile(filePath, 'utf-8');
@@ -31,7 +25,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: { projectId: string } }): Promise<Metadata> {
   const projects = await loadProjects();
   const project = projects.find((p) => p.id === params.projectId);
 
@@ -41,7 +35,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-export default async function ProjectDetail({ params }: PageProps) {
+export default async function ProjectDetail({ params }: { params: { projectId: string } }) {
   const projects = await loadProjects();
   const project = projects.find((p) => p.id === params.projectId);
 
