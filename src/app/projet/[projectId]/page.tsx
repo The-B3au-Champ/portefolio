@@ -1,4 +1,3 @@
-import { FC } from "react";
 import fs from "fs/promises";
 import path from "path";
 import type { Metadata } from "next";
@@ -13,7 +12,7 @@ type Project = {
   screenshots: string[];
 };
 
-// Fonction pour charger les projets à partir du fichier JSON
+// Charger les projets depuis le fichier JSON
 async function loadProjects(): Promise<Project[]> {
   const filePath = path.join(process.cwd(), "public", "projects.json");
   const jsonData = await fs.readFile(filePath, "utf-8");
@@ -24,7 +23,7 @@ async function loadProjects(): Promise<Project[]> {
 export async function generateStaticParams() {
   const projects = await loadProjects();
   return projects.map((project) => ({
-    params: { projectId: project.id },
+    projectId: project.id,
   }));
 }
 
@@ -43,12 +42,12 @@ export async function generateMetadata({
   };
 }
 
-// Définition du composant de la page projet
-interface ProjectDetailProps {
+// ✅ Composant correct avec les bons types
+export default async function ProjectDetail({
+  params,
+}: {
   params: { projectId: string };
-}
-
-const ProjectDetail: FC<ProjectDetailProps> = async ({ params }) => {
+}) {
   const projects = await loadProjects();
   const project = projects.find((p) => p.id === params.projectId);
 
@@ -84,6 +83,4 @@ const ProjectDetail: FC<ProjectDetailProps> = async ({ params }) => {
       </div>
     </div>
   );
-};
-
-export default ProjectDetail;
+}
