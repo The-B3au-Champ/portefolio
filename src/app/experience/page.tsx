@@ -49,7 +49,7 @@ export default function Experience() {
             <div className='mb-20 rounded-lg shadow-lg mt-4 pl-4 pr-4'>
                 <h2 className='font-bold text-2xl mt-8'>Mon Parcours Académique</h2>
                 <p>J&apos;ai étudié dans le domaine de l&apos;informatique au Cégep de Saint-Jérôme au début, pour ensuite me diriger vers l&apos;AEC en développement de sites web.</p>
-                <p>Dans le programme j&apos;ai appris les langages <b>front-End HTML, CSS, JavaScript</b> en particulier mais j&apos;ai également eu la chance d'étudier <b>React, React-native et Next.js</b></p>
+                <p>Dans le programme j&apos;ai appris les langages <b>front-End HTML, CSS, JavaScript</b> en particulier mais j&apos;ai également eu la chance d&apos;étudier <b>React, React-native et Next.js</b></p>
                 <p>Dans le <b>Back-End</b> j&apos;ai étudier <b>Php, Node.js et le framework Laravel</b></p>
             </div>
         </main>

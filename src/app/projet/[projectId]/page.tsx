@@ -1,5 +1,4 @@
 import { use } from 'react';
-
 async function fetchProject(projectId: string) {
   // Remplacez ceci par votre logique pour récupérer les détails du projet
   const projects = {
@@ -60,10 +59,16 @@ export default function ProductDetail({ params }: { params: { projectId: string 
       </ul>
       <h2 className="text-2xl font-semibold mb-2">Défis rencontrés</h2>
       <p className="mb-4">{project.challenges}</p>
-      <h2 className="text-2xl font-semibold mb-2">Captures d'écran</h2>
+      <h2 className="text-2xl font-semibold mb-2">Captures d&apos;écran</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-        {project.screenshots.map((screenshot, index) => (
-          <img key={index} src={screenshot} alt={`Screenshot ${index + 1}`} className="w-full h-auto rounded-lg shadow-md" />
+        {project.screenshots.map((screenshot: string, index: number) => (
+          <img
+            key={index}
+            src={screenshot}
+            width={500} // Remplace par la largeur de tes images (nombre)
+            height={300} // Remplace par la hauteur de tes images (nombre)
+            className="w-full h-auto rounded-lg shadow-md"
+          />
         ))}
       </div>
     </div>
