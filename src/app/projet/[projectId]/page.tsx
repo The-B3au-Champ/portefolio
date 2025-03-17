@@ -23,7 +23,7 @@ async function loadProjects(): Promise<Project[]> {
 export async function generateStaticParams() {
   const projects = await loadProjects();
   return projects.map((project) => ({
-    params: { projectId: project.id }, // Retourne le paramètre correctement
+    params: { projectId: project.id }, // Retourne correctement les params
   }));
 }
 
@@ -42,7 +42,7 @@ export async function generateMetadata({
   };
 }
 
-// ✅ Typage explicite pour les props de la page, en utilisant `PageProps` comme base
+// Fonction de page sans `PageProps`, juste un composant classique
 export default async function ProjectDetail({
   params,
 }: {
