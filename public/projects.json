@@ -1,0 +1,26 @@
+[
+    {
+      "id": "1",
+      "name": "Projet 1",
+      "description": "Application Mobile, YumYam...",
+      "technologies": ["React-Native", "PhpMyAdmin(MySQL)", "Node.js"],
+      "challenges": "Défis rencontrés lors du projet 1",
+      "screenshots": ["/images/screenshot1.png", "/images/screenshot2.png"]
+    },
+    {
+      "id": "2",
+      "name": "Projet 2",
+      "description": "Description du projet 2",
+      "technologies": ["HTML", "CSS", "JavaScript"],
+      "challenges": "Défis rencontrés lors du projet 2",
+      "screenshots": ["/images/screenshot3.png", "/images/screenshot4.png"]
+    },
+    {
+      "id": "3",
+      "name": "Projet 3",
+      "description": "Description du projet 3",
+      "technologies": ["Laravel", "Php", "MongoDB"],
+      "challenges": "Défis rencontrés lors du projet 3",
+      "screenshots": ["/images/screenshot5.png", "/images/screenshot6.png"]
+    }
+  ]
