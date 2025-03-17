@@ -2,7 +2,6 @@ import fs from 'fs/promises';
 import path from 'path';
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import { PageProps } from 'next/types';
 
 type Project = {
   id: string;
@@ -11,6 +10,12 @@ type Project = {
   technologies: string[];
   challenges: string;
   screenshots: string[];
+};
+
+type PageProps = {
+  params: {
+    projectId: string;
+  };
 };
 
 async function loadProjects(): Promise<Project[]> {
@@ -26,7 +31,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }: { params: { projectId: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const projects = await loadProjects();
   const project = projects.find((p) => p.id === params.projectId);
 
@@ -36,9 +41,7 @@ export async function generateMetadata({ params }: { params: { projectId: string
   };
 }
 
-export default async function ProjectDetail({
-  params,
-}: PageProps<{ projectId: string }>) {
+export default async function ProjectDetail({ params }: PageProps) {
   const projects = await loadProjects();
   const project = projects.find((p) => p.id === params.projectId);
 
@@ -67,7 +70,7 @@ export default async function ProjectDetail({
             src={screenshot}
             width={500}
             height={300}
-            alt={`Capture d&apos;écran ${index + 1}`}
+            alt={`Capture d'écran ${index + 1}`}
             className="w-full h-auto rounded-lg shadow-md"
           />
         ))}
