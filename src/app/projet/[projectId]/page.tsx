@@ -1,7 +1,8 @@
-import fs from 'fs/promises';
-import path from 'path';
-import type { Metadata } from 'next';
-import Image from 'next/image';
+import { FC } from "react";
+import fs from "fs/promises";
+import path from "path";
+import type { Metadata } from "next";
+import Image from "next/image";
 
 type Project = {
   id: string;
@@ -12,34 +13,46 @@ type Project = {
   screenshots: string[];
 };
 
+// Fonction pour charger les projets à partir du fichier JSON
 async function loadProjects(): Promise<Project[]> {
-  const filePath = path.join(process.cwd(), 'public', 'projects.json');
-  const jsonData = await fs.readFile(filePath, 'utf-8');
+  const filePath = path.join(process.cwd(), "public", "projects.json");
+  const jsonData = await fs.readFile(filePath, "utf-8");
   return JSON.parse(jsonData);
 }
 
+// Génération des chemins statiques pour le SSG
 export async function generateStaticParams() {
   const projects = await loadProjects();
   return projects.map((project) => ({
-    projectId: project.id,
+    params: { projectId: project.id },
   }));
 }
 
-export async function generateMetadata({ params }: { params: { projectId: string } }): Promise<Metadata> {
+// Génération des métadonnées dynamiques pour le SEO
+export async function generateMetadata({
+  params,
+}: {
+  params: { projectId: string };
+}): Promise<Metadata> {
   const projects = await loadProjects();
   const project = projects.find((p) => p.id === params.projectId);
 
   return {
-    title: project ? project.name : 'Projet introuvable',
-    description: project ? project.description : 'Détails du projet non disponibles.',
+    title: project ? project.name : "Projet introuvable",
+    description: project ? project.description : "Détails du projet non disponibles.",
   };
 }
 
-export default async function ProjectDetail({ params }: { params: { projectId: string } }) {
+// Définition du composant de la page projet
+interface ProjectDetailProps {
+  params: { projectId: string };
+}
+
+const ProjectDetail: FC<ProjectDetailProps> = async ({ params }) => {
   const projects = await loadProjects();
   const project = projects.find((p) => p.id === params.projectId);
 
-  if (!project) return <p>Projet introuvable</p>;
+  if (!project) return <p className="text-center text-red-500">Projet introuvable</p>;
 
   return (
     <div className="container mx-auto p-4">
@@ -71,4 +84,6 @@ export default async function ProjectDetail({ params }: { params: { projectId: s
       </div>
     </div>
   );
-}
+};
+
+export default ProjectDetail;
