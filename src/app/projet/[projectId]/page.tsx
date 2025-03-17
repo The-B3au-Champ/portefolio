@@ -42,8 +42,12 @@ export async function generateMetadata({
   };
 }
 
-// Fonction de la page dynamique, sans `PageProps`
-export default async function ProjectDetail({ params }: { params: { projectId: string } }) {
+// Page dynamique du projet
+export default async function ProjectDetail({
+  params,
+}: {
+  params: { projectId: string };
+}) {
   const projects = await loadProjects();
   const project = projects.find((p) => p.id === params.projectId);
 
