@@ -56,7 +56,7 @@ export default async function ProjectDetail({ params }: { params: { projectId: s
       <h2 className="text-2xl font-semibold mb-2">Défis rencontrés</h2>
       <p className="mb-4">{project.challenges}</p>
 
-      <h2 className="text-2xl font-semibold mb-2">Captures d'écran</h2>
+      <h2 className="text-2xl font-semibold mb-2">Captures d&apos;écran</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {project.screenshots.map((screenshot, index) => (
           <Image
