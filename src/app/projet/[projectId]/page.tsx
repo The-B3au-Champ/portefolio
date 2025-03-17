@@ -3,6 +3,7 @@ import path from "path";
 import type { Metadata } from "next";
 import Image from "next/image";
 
+// Type pour un projet
 type Project = {
   id: string;
   name: string;
@@ -19,15 +20,15 @@ async function loadProjects(): Promise<Project[]> {
   return JSON.parse(jsonData);
 }
 
-// Génération des chemins statiques pour le SSG
+// Génération des chemins statiques pour la page dynamique
 export async function generateStaticParams() {
   const projects = await loadProjects();
   return projects.map((project) => ({
-    params: { projectId: project.id }, // Retourne correctement les params
+    params: { projectId: project.id },
   }));
 }
 
-// Génération des métadonnées dynamiques pour le SEO
+// Génération des métadonnées SEO pour chaque projet
 export async function generateMetadata({
   params,
 }: {
@@ -42,7 +43,7 @@ export async function generateMetadata({
   };
 }
 
-// Fonction de page sans `PageProps`, juste un composant classique
+// Page dynamique du projet
 export default async function ProjectDetail({
   params,
 }: {
