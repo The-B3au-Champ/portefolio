@@ -3,6 +3,7 @@ import path from "path";
 import type { Metadata } from "next";
 import Image from "next/image";
 
+// Type du projet
 type Project = {
   id: string;
   name: string;
@@ -12,14 +13,14 @@ type Project = {
   screenshots: string[];
 };
 
-// Charger les projets depuis le fichier JSON
+// Charger les projets depuis un fichier JSON
 async function loadProjects(): Promise<Project[]> {
   const filePath = path.join(process.cwd(), "public", "projects.json");
   const jsonData = await fs.readFile(filePath, "utf-8");
   return JSON.parse(jsonData);
 }
 
-// Génération des paramètres statiques pour la page dynamique
+// Génération des paramètres pour la page dynamique
 export async function generateStaticParams() {
   const projects = await loadProjects();
   return projects.map((project) => ({
@@ -27,7 +28,7 @@ export async function generateStaticParams() {
   }));
 }
 
-// Génération des métadonnées dynamiques pour le SEO
+// Génération des métadonnées pour le SEO
 export async function generateMetadata({
   params,
 }: {
